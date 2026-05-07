@@ -19,7 +19,7 @@ jobs:
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@master
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
         with:
           args: >
             -Dsonar.projectKey=Saifelden12_Wordle
