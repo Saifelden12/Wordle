@@ -17,16 +17,3 @@ jobs:
 
       - name: Compile
         run: g++ Wordle.cpp -o app
-
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v6
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.projectKey=Saifelden12_Wordle
-            -Dsonar.organization=saifelden12
-            -Dsonar.sources=.
-            -Dsonar.c.file.suffixes=-
-            -Dsonar.cpp.file.suffixes=-
-            -Dsonar.objc.file.suffixes=-
