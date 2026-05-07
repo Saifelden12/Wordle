@@ -3,16 +3,30 @@ name: Cpp CI
 on:
   push:
     branches:
-      - Implementation
       - main
-      
+
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
+  build-and-sonar:
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Compile
         run: g++ Wordle.cpp -o app
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=Saifelden12_Wordle
+            -Dsonar.organization=saifelden12
+            -Dsonar.sources=.
+            -Dsonar.c.file.suffixes=-
+            -Dsonar.cpp.file.suffixes=-
+            -Dsonar.objc.file.suffixes=-
