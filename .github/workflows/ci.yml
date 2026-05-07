@@ -27,6 +27,3 @@ jobs:
             -Dsonar.projectKey=Saifelden12_Wordle
             -Dsonar.organization=saifelden12
             -Dsonar.sources=.
-            -Dsonar.c.file.suffixes=-
-            -Dsonar.cpp.file.suffixes=-
-            -Dsonar.objc.file.suffixes=-
