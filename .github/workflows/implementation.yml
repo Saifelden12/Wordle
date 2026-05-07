@@ -1,0 +1,17 @@
+name: Cpp CI
+
+on:
+  push:
+    branches:
+      - implementation
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Compile
+        run: g++ Wordle.cpp -o app
